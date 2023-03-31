@@ -1,0 +1,12 @@
+variable "bastion_count" {}
+variable "wpserver_count" {}
+variable "bastion_ami" {}
+variable "wpserver_ami" {}
+variable "bastion_instance_type" {}
+variable "wpserver_instance_type" {}
+variable "bastion_vol_size" {}
+variable "wpserver_vol_size" {}
+variable "public_subnets" {}
+variable "wp_subnets" {}
+variable "bastion_sg" {}
+variable "wpserver_sg" {}
