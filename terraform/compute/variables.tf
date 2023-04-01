@@ -10,3 +10,6 @@ variable "public_subnets" {}
 variable "wp_subnets" {}
 variable "bastion_sg" {}
 variable "wpserver_sg" {}
+variable "target_group_arn" {}
+variable "public_key_path" {}
+variable "key_name" {}

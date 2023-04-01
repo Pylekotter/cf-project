@@ -80,6 +80,15 @@ resource "aws_subnet" "db_subnet" {
   }
 }
 
+resource "aws_db_subnet_group" "cf_rds_subnetgroup" {
+  count      = var.db_subnet_group == "true" ? 1 : 0
+  name       = "rds1_subnetgroup"
+  subnet_ids = aws_subnet.db_subnet.*.id
+  tags = {
+    Name = "rds1_sng"
+  }
+}
+
 # --- Route Tables ---
 
 resource "aws_route_table" "cf_public_rt" {

@@ -20,6 +20,36 @@ locals {
           protocol    = "tcp"
           cidr_blocks = [var.access_ip]
         }
+        ssh = {
+          from        = 2222
+          to          = 2222
+          protocol    = "tcp"
+          cidr_blocks = [var.access_ip]
+        }
+      }
+    }
+    loadbalancer = {
+      name        = "loadbalancer sg"
+      description = "public access to ALB"
+      ingress = {
+        http = {
+          from        = 80
+          to          = 80
+          protocol    = "tcp"
+          cidr_blocks = ["0.0.0.0/0"]
+        }
+        https = {
+          from        = 443
+          to          = 443
+          protocol    = "tcp"
+          cidr_blocks = ["0.0.0.0/0"]
+        }
+        tg = {
+          from        = 8000
+          to          = 8000
+          protocol    = "tcp"
+          cidr_blocks = ["0.0.0.0/0"]
+        }
       }
     }
     wpserver = {
@@ -30,7 +60,13 @@ locals {
           from        = 22
           to          = 22
           protocol    = "tcp"
-          cidr_blocks = [var.access_ip]
+          cidr_blocks = [local.vpc_cidr]
+        }
+        tg = {
+          from        = 8000
+          to          = 8000
+          protocol    = "tcp"
+          cidr_blocks = ["0.0.0.0/0"]
         }
       }
     }

@@ -12,10 +12,22 @@ output "wp_subnet" {
   value = aws_subnet.wp_subnet.*.id
 }
 
+output "db_subnet_group_name" {
+  value = aws_db_subnet_group.cf_rds_subnetgroup.*.name
+}
+
 output "bastion_sg" {
   value = aws_security_group.cf-sg["bastion"].id
 }
 
 output "wpserver_sg" {
   value = aws_security_group.cf-sg["wpserver"].id
+}
+
+output "loadbalancer_sg" {
+  value = aws_security_group.cf-sg["loadbalancer"].id
+}
+
+output "rds_sg" {
+  value = aws_security_group.cf-sg["rds"].id
 }
