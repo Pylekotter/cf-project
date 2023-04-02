@@ -21,8 +21,8 @@ locals {
           cidr_blocks = [var.access_ip]
         }
         ssh = {
-          from        = 2222
-          to          = 2222
+          from        = 22
+          to          = 22
           protocol    = "tcp"
           cidr_blocks = [var.access_ip]
         }
